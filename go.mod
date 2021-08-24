@@ -1,6 +1,6 @@
 module github.com/rideziro/go-storage
 
-go 1.16
+go 1.15
 
 require (
 	github.com/elastic/go-elasticsearch/v8 v8.0.0-20210817154545-71e5613a998d

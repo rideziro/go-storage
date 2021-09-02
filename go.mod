@@ -3,7 +3,7 @@ module github.com/rideziro/go-storage
 go 1.15
 
 require (
-	github.com/elastic/go-elasticsearch/v8 v8.0.0-20210817154545-71e5613a998d
+	github.com/elastic/go-elasticsearch/v7 v7.14.0 // indirect
 	github.com/go-redis/redis/v8 v8.11.3
 	github.com/golang-migrate/migrate/v4 v4.14.1
 	github.com/json-iterator/go v1.1.11

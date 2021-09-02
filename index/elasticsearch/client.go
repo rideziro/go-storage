@@ -2,7 +2,7 @@ package elasticsearch
 
 import (
 	"fmt"
-	"github.com/elastic/go-elasticsearch/v8"
+	"github.com/elastic/go-elasticsearch/v7"
 	jsoniniter "github.com/json-iterator/go"
 	"github.com/spf13/viper"
 )

@@ -2,6 +2,8 @@ package elasticsearch
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/elastic/go-elasticsearch/v7"
 	jsoniniter "github.com/json-iterator/go"
 	"github.com/spf13/viper"
@@ -12,12 +14,16 @@ var (
 )
 
 func NewElasticsearchClient() (*elasticsearch.Client, error) {
+	url := viper.GetString("ELASTICSEARCH_URL")
 	username := viper.GetString("ELASTICSEARCH_USERNAME")
 	password := viper.GetString("ELASTICSEARCH_PASSWORD")
+	caCert, _ := os.ReadFile(viper.GetString("ELASTICSEARCH_CA_CERT"))
 
 	client, err := elasticsearch.NewClient(elasticsearch.Config{
-		Username: username,
-		Password: password,
+		Addresses: []string{url},
+		Username:  username,
+		Password:  password,
+		CACert:    caCert,
 	})
 	if err != nil {
 		return nil, err

@@ -6,10 +6,11 @@ import (
 )
 
 type SearchQuery struct {
-	Must    JsonArray `json:"must,omitempty"`
-	Should  JsonArray `json:"should,omitempty"`
-	MustNot JsonArray `json:"must_not,omitempty"`
-	Filter  JsonArray `json:"filter,omitempty"`
+	Must           JsonArray `json:"must,omitempty"`
+	Should         JsonArray `json:"should,omitempty"`
+	MustNot        JsonArray `json:"must_not,omitempty"`
+	Filter         JsonArray `json:"filter,omitempty"`
+	MinShouldMatch int       `json:"minimum_should_match,omitempty"`
 }
 
 type SearchResponse struct {

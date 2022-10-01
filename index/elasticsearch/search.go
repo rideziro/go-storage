@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"io"
+
 	"github.com/elastic/go-elasticsearch/v7"
 	"github.com/rideziro/go-storage/index"
-	"io"
 )
 
 const (
@@ -81,6 +82,12 @@ func (s *Search) AddMustNotQuery(query interface{}) *Search {
 func (s *Search) AddFilterQuery(query interface{}) *Search {
 	sData := s.getInstance()
 	sData.Query.Filter = append(sData.Query.Filter, query)
+	return sData
+}
+
+func (s *Search) SetMinShouldMatch(match int) *Search {
+	sData := s.getInstance()
+	sData.Query.MinShouldMatch = match
 	return sData
 }
 
